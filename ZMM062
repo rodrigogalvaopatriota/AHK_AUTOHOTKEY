@@ -1,0 +1,226 @@
+; glossario: 133 vai gerar arquivo no sap / 164 tratamento no excel / 185: carregou,salvar excel
+
+;Esc::
+::
+dia := A_DD
+mes := A_MM
+mes_passado := A_MM -1
+ano := A_YYYY
+
+
+Sleep, 10000
+
+timer1 = 1000
+timer2 = 7000
+timer3 = 180000
+;Run, Notepad.exe
+;WinActivate, Untitled - Notepad
+;WinWaitActive, Untitled - Notepad
+
+MsgBox, PROCESSO DE ATUALIZAÇAO SERA INICIADO APOS VOCE CLICAR EM OK , NAO UTILIZAR A MAQUINA APOS CLICAR.
+
+
+Run, saplogon.exe
+
+Sleep, timer2
+
+;#a::
+;send {# a}
+ Sleep, timer1
+Send {Down}
+ Sleep, timer1
+Send {Down}
+ Sleep, timer1
+Send {Enter}
+
+Sleep, timer2
+
+;#b::
+;send {# b}
+ Sleep, timer1
+Send S85657620925
+ Sleep, timer1
+Send {Down}
+ Sleep, timer1
+Send @Jesus123
+ Sleep, timer1
+Send {Enter}
+
+Sleep, timer2
+
+;ACESSO A zmm062
+;#c::
+;send {# c}
+ Sleep, timer1
+Send zmm062
+ Sleep, timer1
+Send {Enter}
+
+Sleep, timer2
+
+Loop, 5{
+  Send {Down}  
+}
+
+Send, %dia%0%mes_passado%%ano%
+Send,{tab}
+Send, %dia%%mes%%ano%
+
+Sleep timer1
+
+Send {Tab}
+Send {Tab}
+
+Send {Down}
+Send {Down}
+Send {Down}
+
+Send, 01pr
+Sleep, timer1
+Send {Down}
+
+Send, DSEP
+Sleep, timer1
+
+Send {Tab}
+Send {Tab}
+
+Send {Enter}
+Sleep, timer1
+
+Send {Down}
+Send, DTEC
+Sleep, timer1
+Send {f8}
+Sleep, timer1
+
+
+Loop, 5{ 
+ Send {Tab}
+}
+
+
+Send {Down}
+Send {Down}
+
+Loop, 16 {
+ Send {Tab}
+}
+
+
+Send, 01pr
+
+Sleep, timer1
+
+Send {Tab}
+Send {Tab}
+
+Send {Enter}
+Sleep, timer1
+
+Send {Down}
+Send, 65pr
+Sleep, timer1
+
+Send {Down}
+Send, tlpr
+Sleep, timer1
+Send {f8}
+
+Sleep, timer1
+Send {f8}
+
+; vai gerar o arquivo no sap
+
+Sleep, timer2 
+Sleep, timer2 
+Send {alt}
+
+Send {Down}
+Send {Down}
+Send {Down}
+
+Send {enter}
+Send {Down}
+Send {enter}
+Sleep timer1
+Send {enter}
+
+Sleep timer3
+
+
+Loop, 6 {
+ Send {tab}
+}
+
+
+
+Send {Down}
+
+Send {enter}
+Send {enter}
+
+
+
+; tratamento do arquivo excel
+
+Loop, 6 {
+ sleep, timer1
+ Send {tab}
+}
+
+
+sleep, timer1
+
+Send {down}
+sleep, timer1
+Send {enter}
+sleep, timer1
+Send {left}
+sleep, timer1
+Send {enter}
+
+
+sleep, timer3
+sleep, timer2
+;carregou o excel, procedimento de salvar:
+Send {alt}
+sleep, timer1
+Send {a}
+sleep, timer1
+Send {r}
+sleep, timer1
+sleep, timer1
+
+Send {tab}
+
+sleep, timer1
+
+Send {tab}
+
+sleep, timer1
+
+send {enter}
+
+sleep, timer1
+
+send zmm062
+sleep, timer1
+send {tab}
+sleep, timer1
+send {down}
+sleep, timer1
+
+Loop, 30{
+    send {up}
+}
+sleep, timer1
+send {enter}
+sleep, timer1
+send {enter}
+sleep, timer2
+
+MsgBox, finalizado
+
+return
+Exit
